@@ -2,8 +2,6 @@ import 'package:connect_social_app/config/themes/app_main_theme.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/screens/main/main_page.dart';
-import 'package:connect_social_app/presentation/screens/settings.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter/material.dart';
