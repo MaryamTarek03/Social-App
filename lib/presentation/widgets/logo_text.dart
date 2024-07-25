@@ -1,3 +1,4 @@
+import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,8 +29,7 @@ class LogoText extends StatelessWidget {
           fontWeight: FontWeight.bold,
         );
         return Text(
-          // S.of(context).platformName,
-          'Connect',
+          S.of(context).platformName,
           style: appManager.language == const Locale('en')
               ? englishFont
               : arabicFont,

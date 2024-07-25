@@ -1,8 +1,9 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/fit_container.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Post extends StatelessWidget {
   const Post({super.key});
@@ -10,114 +11,153 @@ class Post extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool imageExist = true;
-    return MyFitContainer(
-      child: Column(
-        children: [
-          ListTile(
-            contentPadding: const EdgeInsets.all(0),
-            leading: const CircleAvatar(),
-            title: CommonText(text: 'Name'),
-            subtitle: CommonText(
-              text: 'Username • 30-07-2024',
-              fontSize: 12,
-            ),
-            trailing: const Icon(Icons.more_vert_rounded),
-          ),
-          const SizedBox(height: 10),
-          CommonText(
-            //! remove ignore
-            // ignore: dead_code
-            maxLines: imageExist ? 3 : 10,
-            text: 'Post Body ' * 150,
-          ),
-          const SizedBox(height: 10),
-          Stack(
-            alignment: Alignment.bottomRight,
-            clipBehavior: Clip.none,
+    return BlocConsumer<AppManagerCubit, AppManagerState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        AppManagerCubit appManager = AppManagerCubit.get(context);
+        return MyFitContainer(
+          child: Column(
             children: [
-              Visibility(
-                visible: imageExist,
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Numbers.radiusMedium),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/placeholder/image.png'),
-                      fit: BoxFit.cover,
+              ListTile(
+                contentPadding: const EdgeInsets.all(0),
+                leading: const CircleAvatar(),
+                title: CommonText(text: 'Name'),
+                subtitle: CommonText(
+                  text: 'August 30 2024 • 01:37 PM',
+                  fontSize: 12,
+                ),
+                trailing: const Icon(Icons.more_vert_rounded),
+              ),
+              const SizedBox(height: 10),
+              CommonText(
+                maxLines: imageExist ? 3 : 10,
+                text: 'Post Body ' * 150,
+              ),
+              const SizedBox(height: 10),
+              Stack(
+                alignment: Alignment.bottomRight,
+                clipBehavior: Clip.none,
+                children: [
+                  Visibility(
+                    visible: imageExist,
+                    child: Container(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.45,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Numbers.radiusMedium),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/placeholder/image.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  Positioned(
+                    bottom: imageExist ? -25 : null,
+                    right: imageExist ? 5 : null,
+                    left: appManager.language == const Locale('ar') ? 0 : null,
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleButton(
+                          icon: Icon(
+                            Icons.chat_bubble_outline_rounded,
+                            size: 15,
+                          ),
+                        ),
+                        CircleButton(
+                          icon: Icon(
+                            Icons.link,
+                            size: 15,
+                          ),
+                        ),
+                        CircleButton(
+                          icon: Icon(
+                            Icons.favorite_border_rounded,
+                            size: 15,
+                          ),
+                          isMini: false,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Positioned(
-                bottom: imageExist ? -15 : null,
-                right: imageExist ? 5 : null,
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+              const Padding(
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  Numbers.paddingLarge,
+                  0,
+                  Numbers.paddingMedium,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CircleButton(
-                        icon: Icon(
-                      Icons.chat_bubble_outline_rounded,
-                      size: 15,
-                    )),
-                    CircleButton(
-                        icon: Icon(
-                      Icons.link,
-                      size: 15,
-                    )),
-                    CircleButton(
+                    CircleAvatar(),
+                    CircleAvatar(),
+                    CircleAvatar(),
+                    Spacer(),
+                    PostMiniButton(
                       icon: Icon(
                         Icons.favorite_border_rounded,
-                        size: 15,
                       ),
-                      isMini: false,
+                      text: '10',
+                    ),
+                    PostMiniButton(
+                      icon: Icon(
+                        Icons.link_rounded,
+                      ),
+                      text: '2',
+                    ),
+                    PostMiniButton(
+                      icon: Icon(
+                        Icons.chat_bubble_outline_rounded,
+                      ),
+                      text: '7',
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-              0,
-              Numbers.paddingLarge,
-              0,
-              Numbers.paddingMedium,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const CircleAvatar(),
-                const CircleAvatar(),
-                const CircleAvatar(),
-                const Spacer(),
-                const Icon(Icons.favorite_border_rounded),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 5,
-                    right: 10,
-                  ),
-                  child: CommonText(text: '3'),
-                ),
-                const Icon(Icons.link),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 5,
-                    right: 10,
-                  ),
-                  child: CommonText(text: '98'),
-                ),
-                const Icon(Icons.chat_bubble_outline_rounded),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 5,
-                    right: 10,
-                  ),
-                  child: CommonText(text: '12'),
-                ),
-              ],
-            ),
+        );
+      },
+    );
+  }
+}
+
+class PostMiniButton extends StatelessWidget {
+  final Widget icon;
+  final String text;
+  const PostMiniButton({
+    super.key,
+    required this.icon,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
+        shadowColor: const MaterialStatePropertyAll(Colors.transparent),
+        elevation: const MaterialStatePropertyAll(0),
+        iconColor: MaterialStatePropertyAll(
+            Theme.of(context).colorScheme.outlineVariant),
+        padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          icon,
+          const SizedBox(width: 5),
+          CommonText(
+            text: text,
+            color: Theme.of(context).colorScheme.outlineVariant,
           ),
         ],
       ),
@@ -141,7 +181,9 @@ class CircleButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Numbers.paddingSmall),
       child: FloatingActionButton(
+        heroTag: null,
         onPressed: () {},
+        foregroundColor: Colors.white,
         mini: isMini,
         shape: const CircleBorder(),
         child: icon,

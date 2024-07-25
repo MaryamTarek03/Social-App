@@ -7,24 +7,37 @@ class AppTheme {
   static ThemeData getLightTheme() {
     return ThemeData(
       colorScheme: ColorScheme.light(
-        primary: PaletteLight.primary,
-        secondary: PaletteLight.secondary,
-        tertiary: PaletteLight.accent,
-        background: PaletteLight.background,
-        onBackground: PaletteLight.onBackground,
+        primary: LightPalette.primary,
+        secondary: LightPalette.secondary,
+        tertiary: LightPalette.accent,
+        background: LightPalette.background,
+        onBackground: LightPalette.onBackground,
+        outline: LightPalette.outline,
+        outlineVariant: LightPalette.subText,
         error: Colors.redAccent,
         brightness: Brightness.light,
       ),
-      scaffoldBackgroundColor: PaletteLight.background,
-      dividerColor: PaletteLight.text,
+      scaffoldBackgroundColor: LightPalette.background,
+      dividerColor: LightPalette.text,
     );
   }
 
   static ThemeData getDarkTheme() {
     return ThemeData(
-      colorScheme: const ColorScheme.dark(
+      colorScheme: ColorScheme.dark(
+        primary: DarkPalette.primary,
+        secondary: DarkPalette.secondary,
+        tertiary: DarkPalette.accent,
+        background: DarkPalette.background,
+        onBackground: DarkPalette.onBackground,
+        outline: DarkPalette.outline,
+        outlineVariant: DarkPalette.subText,
+        error: Colors.redAccent,
         brightness: Brightness.dark,
       ),
+      scaffoldBackgroundColor: DarkPalette.background,
+      dividerColor: DarkPalette.text,
+      appBarTheme: AppBarTheme(color: DarkPalette.appBar),
     );
   }
 }

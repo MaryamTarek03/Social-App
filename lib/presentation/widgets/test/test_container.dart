@@ -4,9 +4,9 @@ import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:flutter/material.dart';
 
 class TestContainer extends StatelessWidget {
-  const TestContainer({super.key, this.color = Colors.white});
+  const TestContainer({super.key, this.color});
 
-  final Color color;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,11 +23,11 @@ class TestContainer extends StatelessWidget {
         right: Numbers.paddingMedium,
       ),
       decoration: BoxDecoration(
-        color: color,
+        color: color ?? Theme.of(context).colorScheme.onBackground,
         borderRadius: BorderRadius.circular(Numbers.radiusMedium),
         border: Border.all(
           width: 1,
-          color: const Color(0xFFE8E8E8),
+          color: Theme.of(context).colorScheme.outline,
         ),
       ),
       child: const Column(),

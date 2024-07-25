@@ -1,0 +1,18 @@
+{
+  "home": "الرئيسية",
+  "chats": "الدردشات",
+  "friends": "الاصدقاء",
+  "profile": "البروفايل",
+  "settings": "الإعدادات",
+  "signOut": "تسجيل الخروج",
+  "platformName": "كونكت",
+  "createPostTooltip": "أنشئ منشوراً",
+  "create": "أنشئ!",
+  "posts": "المنشورات",
+  "likes": "الاعجابات",
+  "settingsToggleLang": "بدّل اللغة",
+  "settingsToggleTheme": "بدّل الثيم",
+  "settingsGoToContact": "تواصل معنا",
+  "settingsGeneral": "عام",
+  "settingsOther": "اخري"
+}

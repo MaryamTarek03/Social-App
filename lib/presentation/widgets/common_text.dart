@@ -9,9 +9,7 @@ class CommonText extends StatelessWidget {
   final FontWeight fontWeight;
   final double fontSize;
   final int maxLines;
-  Color color;
-
-  bool invertColor;
+  Color? color;
 
   CommonText({
     super.key,
@@ -19,8 +17,7 @@ class CommonText extends StatelessWidget {
     this.fontSize = 16,
     this.fontWeight = FontWeight.normal,
     this.maxLines = 10,
-    this.invertColor = false,
-    this.color = Colors.transparent,
+    this.color,
   });
 
   @override
@@ -29,19 +26,21 @@ class CommonText extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         AppManagerCubit appManager = AppManagerCubit.get(context);
-
-        color = color == Colors.transparent
-            ? Theme.of(context).dividerColor
-            : color;
         return Text(
           text,
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
           style: appManager.language == const Locale('en')
               ? englishStyle(
-                  fontSize: fontSize, color: color, fontWeight: fontWeight)
+                  fontSize: fontSize,
+                  color: color ?? Theme.of(context).dividerColor,
+                  fontWeight: fontWeight,
+                )
               : arabicStyle(
-                  fontSize: fontSize, color: color, fontWeight: fontWeight),
+                  fontSize: fontSize,
+                  color: color ?? Theme.of(context).dividerColor,
+                  fontWeight: fontWeight,
+                ),
         );
       },
     );

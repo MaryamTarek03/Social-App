@@ -8,7 +8,17 @@ class AppManagerCubit extends Cubit<AppManagerState> {
   AppManagerCubit() : super(AppManagerInitial());
   static AppManagerCubit get(context) => BlocProvider.of(context);
 
-  Locale language = const Locale('en');
+  int selectedPageIndex = 0;
+  void setSelectedPageIndex(int index) {
+    if (selectedPageIndex == index) {
+      selectedPageIndex = 0;
+    } else {
+      selectedPageIndex = index;
+    }
+    emit(AppManagerChangePage());
+  }
+
+  Locale language = const Locale('ar');
   Alignment stackAlignment = Alignment.topLeft;
   void toggleLanguage() {
     language = language == const Locale('en')
@@ -19,7 +29,7 @@ class AppManagerCubit extends Cubit<AppManagerState> {
     emit(AppManagerChangeLang());
   }
 
-  ThemeMode themeMode = ThemeMode.system;
+  ThemeMode themeMode = ThemeMode.dark;
 
   void toggleTheme() {
     themeMode = themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;

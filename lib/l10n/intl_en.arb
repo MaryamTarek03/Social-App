@@ -1,0 +1,18 @@
+{
+  "home": "Home",
+  "chats": "Chats",
+  "friends": "Friends",
+  "profile": "Profile",
+  "settings": "Settings",
+  "signOut": "Sign Out",
+  "platformName": "Connect",
+  "createPostTooltip": "Create a Post",
+  "create": "Create!",
+  "posts": "Posts",
+  "likes": "Likes",
+  "settingsToggleLang": "Toggle Language",
+  "settingsToggleTheme": "Toggle Theme",
+  "settingsGoToContact": "Contact Us",
+  "settingsGeneral": "General",
+  "settingsOther": "Other"
+}
