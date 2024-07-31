@@ -6,9 +6,11 @@ part 'app_manager_state.dart';
 
 class AppManagerCubit extends Cubit<AppManagerState> {
   AppManagerCubit() : super(AppManagerInitial());
+
   static AppManagerCubit get(context) => BlocProvider.of(context);
 
   int selectedPageIndex = 0;
+
   void setSelectedPageIndex(int index) {
     if (selectedPageIndex == index) {
       selectedPageIndex = 0;
@@ -18,8 +20,9 @@ class AppManagerCubit extends Cubit<AppManagerState> {
     emit(AppManagerChangePage());
   }
 
-  Locale language = const Locale('ar');
+  Locale language = const Locale('en');
   Alignment stackAlignment = Alignment.topLeft;
+
   void toggleLanguage() {
     language = language == const Locale('en')
         ? const Locale('ar')
@@ -29,7 +32,7 @@ class AppManagerCubit extends Cubit<AppManagerState> {
     emit(AppManagerChangeLang());
   }
 
-  ThemeMode themeMode = ThemeMode.dark;
+  ThemeMode themeMode = ThemeMode.system;
 
   void toggleTheme() {
     themeMode = themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;

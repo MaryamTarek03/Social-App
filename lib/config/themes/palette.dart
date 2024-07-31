@@ -22,4 +22,5 @@ abstract class DarkPalette {
   static Color outline = const Color(0xFF283143);
 
   static Color appBar = const Color(0xFF151A23);
+  static Color profileButton = const Color(0xFF151A23);
 }

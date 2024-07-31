@@ -1,12 +1,12 @@
-import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
+import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
+import 'package:connect_social_app/presentation/screens/notification_page.dart';
 import 'package:connect_social_app/presentation/widgets/drawer.dart';
 import 'package:connect_social_app/presentation/widgets/logo_text.dart';
-import 'package:connect_social_app/presentation/widgets/navigation_bar.dart';
+import 'package:connect_social_app/presentation/widgets/material_button.dart';
 import 'package:connect_social_app/presentation/widgets/test/test_container.dart';
 import 'package:connect_social_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({
@@ -15,55 +15,61 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppManagerCubit, AppManagerState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var appManager = AppManagerCubit.get(context);
-        return Scaffold(
-          appBar: AppBar(
-            title: Row(
-              children: [
-                const LogoText(),
-                const SizedBox(width: 35),
-                MyNavigationBar(
-                  onTap: appManager.setSelectedPageIndex,
-                  currentIndex: appManager.selectedPageIndex,
-                ),
-              ],
-            ),
-            elevation: 0,
-            scrolledUnderElevation: 2,
-            shadowColor: Colors.black,
-            surfaceTintColor: Theme.of(context).colorScheme.onBackground,
-          ),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (!Responsive.isMobile(context))
-                const Flexible(child: MyDrawer()),
-              Expanded(
-                flex: 3,
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Expanded(flex: 3, child: Feed()),
-                      if (Responsive.isDesktop(context))
-                        const Expanded(
-                          child: TestContainer(),
-                        ),
-                    ],
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const LogoText(),
+        actions: [
+          Container(
+            width: 40,
+            height: 40,
+            margin: const EdgeInsets.all(Numbers.paddingSmall),
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(Numbers.radiusMedium)),
+            child: MyMaterialButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationPage(),
                 ),
               ),
-            ],
+              child: const Icon(
+                Icons.notifications,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+        elevation: 0,
+        scrolledUnderElevation: 2,
+        shadowColor: Colors.black,
+        surfaceTintColor: Theme.of(context).colorScheme.onBackground,
+      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (!Responsive.isMobile(context)) const Flexible(child: MyDrawer()),
+          Expanded(
+            flex: 3,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Expanded(flex: 3, child: Feed()),
+                  if (Responsive.isDesktop(context))
+                    const Expanded(
+                      child: TestContainer(),
+                    ),
+                ],
+              ),
+            ),
           ),
-          drawer: Responsive.isMobile(context) ? const MyDrawer() : null,
-        );
-      },
+        ],
+      ),
+      drawer: Responsive.isMobile(context) ? const MyDrawer() : null,
     );
   }
 }

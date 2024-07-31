@@ -1,4 +1,4 @@
-import 'package:connect_social_app/data/models/list_button_model.dart';
+import 'package:connect_social_app/data/models/app_models.dart';
 import 'package:connect_social_app/presentation/widgets/material_button.dart';
 import 'package:flutter/material.dart';
 

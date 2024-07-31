@@ -42,15 +42,12 @@ class Post extends StatelessWidget {
                     visible: imageExist,
                     child: Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.45,
+                      clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Numbers.radiusMedium),
-                        image: const DecorationImage(
-                          image: AssetImage('assets/placeholder/image.png'),
-                          fit: BoxFit.cover,
-                        ),
                       ),
+                      child: Image.asset('assets/placeholder/image.png'),
                     ),
                   ),
                   Positioned(

@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class MyFitContainer extends StatelessWidget {
   final Widget child;
   final bool hasShadow;
-
+  final double? width;
+  final double? height;
   final double minWidth;
-
   final double maxWidth;
-
   final double? margin;
+  final double? padding;
+  
+  final Color? color;
 
   const MyFitContainer({
     super.key,
@@ -18,19 +20,24 @@ class MyFitContainer extends StatelessWidget {
     this.minWidth = 0,
     this.maxWidth = 250,
     this.margin,
+    this.width,
+    this.height,
+    this.padding, this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(Numbers.paddingMedium16),
+      width: width,
+      height: height,
+      padding: EdgeInsets.all(padding ?? Numbers.paddingMedium16),
       margin: EdgeInsets.only(top: margin ?? Numbers.paddingLarge),
       constraints: BoxConstraints(
         minWidth: minWidth,
         maxWidth: maxWidth,
       ),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.onBackground,
+        color: color ?? Theme.of(context).colorScheme.onBackground,
         borderRadius: BorderRadius.circular(Numbers.radiusMedium),
         border: Border.all(
           width: 1,

@@ -6,10 +6,13 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: CommonText(
-        text: 'N O T I F I C A T I O N S',
-        fontSize: 32,
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: CommonText(
+          text: 'N O T I F I C A T I O N S',
+          fontSize: 32,
+        ),
       ),
     );
   }
