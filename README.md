@@ -1,6 +1,6 @@
 # connect_social_app
 
-Final Project for Flutter IEEE, A Social Media App
+Project for Flutter IEEE, A Social Media App
 
 ## Getting Started
 
