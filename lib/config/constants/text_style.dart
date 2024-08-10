@@ -6,7 +6,7 @@ TextStyle englishStyle({
   required Color color,
   FontWeight fontWeight = FontWeight.normal,
 }) =>
-    GoogleFonts.balooBhaijaan2(
+    GoogleFonts.aBeeZee(
       fontSize: fontSize,
       color: color,
       fontWeight: fontWeight,

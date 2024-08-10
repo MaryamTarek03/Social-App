@@ -1,12 +1,15 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/data/models/post_model.dart';
 import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/fit_container.dart';
+import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Post extends StatelessWidget {
-  const Post({super.key});
+  final PostModel post;
+  const Post({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +19,7 @@ class Post extends StatelessWidget {
       builder: (context, state) {
         AppManagerCubit appManager = AppManagerCubit.get(context);
         return MyFitContainer(
+          margin: 0,
           child: Column(
             children: [
               ListTile(
@@ -23,7 +27,7 @@ class Post extends StatelessWidget {
                 leading: const CircleAvatar(),
                 title: CommonText(text: 'Name'),
                 subtitle: CommonText(
-                  text: 'August 30 2024 • 01:37 PM',
+                  text: post.date,
                   fontSize: 12,
                 ),
                 trailing: const Icon(Icons.more_vert_rounded),
@@ -31,7 +35,7 @@ class Post extends StatelessWidget {
               const SizedBox(height: 10),
               CommonText(
                 maxLines: imageExist ? 3 : 10,
-                text: 'Post Body ' * 150,
+                text: '${post.body} ' * 150,
               ),
               const SizedBox(height: 10),
               Stack(
@@ -60,13 +64,13 @@ class Post extends StatelessWidget {
                       children: [
                         CircleButton(
                           icon: Icon(
-                            Icons.chat_bubble_outline_rounded,
+                            Icons.link,
                             size: 15,
                           ),
                         ),
                         CircleButton(
                           icon: Icon(
-                            Icons.link,
+                            Icons.chat_bubble_outline_rounded,
                             size: 15,
                           ),
                         ),
@@ -82,8 +86,8 @@ class Post extends StatelessWidget {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
                   0,
                   Numbers.paddingLarge,
                   0,
@@ -93,27 +97,27 @@ class Post extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    Spacer(),
                     PostMiniButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.favorite_border_rounded,
                       ),
-                      text: '10',
+                      text: post.likesNumber.toString(),
+                      onPressed: () {},
                     ),
                     PostMiniButton(
-                      icon: Icon(
+                      icon: const Icon(
+                        Icons.chat_bubble_outline_rounded,
+                      ),
+                      text: post.commentsNumber.toString(),
+                      onPressed: () {},
+                    ),
+                    const Spacer(),
+                    PostMiniButton(
+                      icon: const Icon(
                         Icons.link_rounded,
                       ),
                       text: '2',
-                    ),
-                    PostMiniButton(
-                      icon: Icon(
-                        Icons.chat_bubble_outline_rounded,
-                      ),
-                      text: '7',
+                      onPressed: () {},
                     ),
                   ],
                 ),
@@ -122,42 +126,6 @@ class Post extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class PostMiniButton extends StatelessWidget {
-  final Widget icon;
-  final String text;
-  const PostMiniButton({
-    super.key,
-    required this.icon,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ButtonStyle(
-        backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-        shadowColor: const MaterialStatePropertyAll(Colors.transparent),
-        elevation: const MaterialStatePropertyAll(0),
-        iconColor: MaterialStatePropertyAll(
-            Theme.of(context).colorScheme.outlineVariant),
-        padding: const MaterialStatePropertyAll(EdgeInsets.zero),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          icon,
-          const SizedBox(width: 5),
-          CommonText(
-            text: text,
-            color: Theme.of(context).colorScheme.outlineVariant,
-          ),
-        ],
-      ),
     );
   }
 }
