@@ -1,9 +1,13 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/config/constants/text_style.dart';
 import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/data/models/app_models.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
+import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/widgets/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/image_viewer.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
+import 'package:connect_social_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class CommentScreen extends StatelessWidget {
@@ -13,30 +17,80 @@ class CommentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: CommonText(
-          text: 'Post Details',
-          fontSize: 20,
-        ),
-        centerTitle: true,
+        appBar: postAppBar(context),
+        body: Responsive.isMobile(context)
+            ? PostMainBody(post: post)
+            : PostMainBody(post: post));
+  }
+
+  AppBar postAppBar(BuildContext context) {
+    return AppBar(
+      title: CommonText(
+        text: S.of(context).postDetails,
+        fontSize: Numbers.appBarTitleSize,
+        fontWeight: FontWeight.bold,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            PostCard(post: post),
-            const CommentInputField(),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.zero,
-              itemCount: comments.length,
-              itemBuilder: (context, index) {
-                return CommentTile(comment: comments[index]);
-              },
+      centerTitle: true,
+    );
+  }
+}
+
+class PostMainBody extends StatelessWidget {
+  const PostMainBody({
+    super.key,
+    required this.post,
+  });
+
+  final PostModel post;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                if (post.postImage != null && Responsive.isMobile(context))
+                  PostImage(post: post),
+                PostCard(post: post),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.zero,
+                  itemCount: comments.length,
+                  itemBuilder: (context, index) {
+                    return CommentTile(comment: comments[index]);
+                  },
+                ),
+              ],
             ),
-          ],
+          ),
+        ),
+        const CommentInputField(),
+      ],
+    );
+  }
+}
+
+class PostImage extends StatelessWidget {
+  const PostImage({
+    super.key,
+    required this.post,
+  });
+
+  final PostModel post;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ImageViewerPage(image: post.postImage!),
         ),
       ),
+      child: Image.network(post.postImage!),
     );
   }
 }
@@ -133,49 +187,12 @@ class PostCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  const CircleAvatar(
-                    // backgroundImage: AssetImage('link'),
-                    radius: 25,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CommonText(text: 'Dan Walker'),
-                        const SizedBox(height: 2),
-                        CommonText(
-                          text: post.date,
-                          fontSize: 12,
-                          color: Theme.of(context).colorScheme.outlineVariant,
-                        ),
-                      ],
-                    ),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: Colors.grey.shade300),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 18, vertical: 16),
-                      textStyle:
-                          const TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                    child: CommonText(
-                      text: 'Follow',
-                    ),
-                  ),
-                  const Icon(Icons.more_vert),
-                ],
-              ),
+              PostUserData(post: post),
               const SizedBox(height: 30),
               CommonText(text: post.body),
               const SizedBox(height: 30),
+              const Divider(height: 5),
+              const SizedBox(height: Numbers.paddingSmall),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -195,31 +212,83 @@ class PostCard extends StatelessWidget {
                     color: Theme.of(context).colorScheme.outlineVariant,
                   ),
                   CommonText(
-                    text: ' comments',
+                    text: ' ${S.of(context).comment}',
                     color: Theme.of(context).colorScheme.outlineVariant,
                   ),
                 ],
               ),
-              const Divider(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  PostMiniButton(
-                    icon: const Icon(Icons.thumb_up_off_alt),
-                    text: 'Like',
-                    onPressed: () {},
-                  ),
-                  PostMiniButton(
-                    icon: const Icon(Icons.comment_outlined),
-                    text: 'Comment',
-                    onPressed: () {},
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     PostMiniButton(
+              //       icon: const Icon(Icons.thumb_up_off_alt),
+              //       text: 'Like',
+              //       onPressed: () {},
+              //     ),
+              //     PostMiniButton(
+              //       icon: const Icon(Icons.comment_outlined),
+              //       text: 'Comment',
+              //       onPressed: () {},
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class PostUserData extends StatelessWidget {
+  const PostUserData({
+    super.key,
+    required this.post,
+  });
+
+  final PostModel post;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const CircleAvatar(
+          // backgroundImage: AssetImage('link'),
+          radius: 25,
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CommonText(text: 'Dan Walker'),
+              const SizedBox(height: 2),
+              CommonText(
+                text: post.date,
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+            ],
+          ),
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          style: OutlinedButton.styleFrom(
+            side:
+                BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Numbers.radiusMedium),
+            ),
+            padding:
+                const EdgeInsets.symmetric(horizontal: Numbers.paddingMedium),
+            textStyle: const TextStyle(fontSize: 14, color: Colors.grey),
+          ),
+          child: CommonText(
+            text: S.of(context).follow,
+          ),
+        ),
+        const Icon(Icons.more_vert),
+      ],
     );
   }
 }
@@ -230,13 +299,13 @@ class CommentInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      color: Colors.grey.shade50,
+      padding: const EdgeInsets.all(Numbers.paddingMedium),
+      color: Theme.of(context).colorScheme.background,
       child: Row(
         children: [
           const CircleAvatar(
             // backgroundImage: NetworkImage('link'), // Profile image
-            radius: 20,
+            radius: 25,
           ),
           const SizedBox(
             width: 8,
@@ -245,25 +314,50 @@ class CommentInputField extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white, // Background color of the input field
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(color: Colors.grey.shade200, width: 1),
+                borderRadius: BorderRadius.circular(Numbers.radiusLarge),
+                // border: Border.all(color: Colors.grey.shade200, width: 1),
               ),
               child: Row(
                 children: [
-                  const Expanded(
+                  IconButton(
+                    splashColor: Colors.black,
+                    icon: Icon(
+                      Icons.emoji_emotions_outlined,
+                      color: Theme.of(context).colorScheme.outlineVariant,
+                    ),
+                    onPressed: () {
+                      _showEmojiPicker(context);
+                    },
+                  ),
+                  Expanded(
                     child: TextField(
+                      style: englishStyle(color: Colors.black),
                       decoration: InputDecoration(
-                        hintText: 'Add a comment...',
+                        hintText: S.of(context).postCommentHintText,
+                        hintStyle: Localizations.localeOf(context) ==
+                                const Locale('en')
+                            ? englishStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .outlineVariant)
+                            : arabicStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .outlineVariant),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                        contentPadding:
+                            const EdgeInsets.all(Numbers.paddingMedium),
                       ),
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.emoji_emotions_outlined),
-                    onPressed: () {
-                      _showEmojiPicker(context);
-                    },
+                    splashColor: Colors.black,
+                    color: Colors.black,
+                    icon: Icon(
+                      Icons.send,
+                      color: Theme.of(context).colorScheme.outlineVariant,
+                    ),
+                    onPressed: () {},
                   ),
                 ],
               ),

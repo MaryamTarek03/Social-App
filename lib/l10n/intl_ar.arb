@@ -14,5 +14,11 @@
   "settingsToggleTheme": "بدّل الثيم",
   "settingsGoToContact": "تواصل معنا",
   "settingsGeneral": "عام",
-  "settingsOther": "اخري"
+  "settingsOther": "اخري",
+  "postCommentHintText": "اضف تعليقاً...",
+  "comment": "تعليق",
+  "postDetails": "تفاصيل المنشور",
+  "follow" : "متابعة",
+  "recent" : " حديث",
+  "popular" : "شائع"
 }

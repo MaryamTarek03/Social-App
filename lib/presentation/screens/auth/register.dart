@@ -227,9 +227,6 @@ class _ProfileSetupState extends State<ProfileSetup> {
                     ],
                   ),
                 ),
-
-
-
                 const SizedBox(height: 20),
                 Container(
                   padding: const EdgeInsets.all(16.0),

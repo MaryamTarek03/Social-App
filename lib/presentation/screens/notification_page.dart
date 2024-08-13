@@ -23,24 +23,25 @@ import 'package:flutter/material.dart';
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NOTIFICATIONS',
-        style: TextStyle(fontSize: 15,
-          color: Colors.black45,
-          fontWeight: FontWeight.bold,
-        ),
+        title: const Text(
+          'NOTIFICATIONS',
+          style: TextStyle(
+            fontSize: 15,
+            color: Colors.black45,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
         actions: const [
-          Padding(padding:EdgeInsets.symmetric(horizontal: 15),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Icon(Icons.notifications_none_rounded),
           )
-
         ],
       ),
       body: Column(
@@ -62,12 +63,14 @@ class NotificationPage extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: notification.name,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             TextSpan(text: ' ${notification.action} '),
                             TextSpan(
                               text: notification.target,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -75,15 +78,18 @@ class NotificationPage extends StatelessWidget {
                       subtitle: Text(notification.time),
                       trailing: Icon(notification.icon),
                     ),
-                Divider(color: Colors.grey.shade300,height: 20,
-                ),
+                    Divider(
+                      color: Colors.grey.shade300,
+                      height: 20,
+                    ),
                   ],
                 );
               },
             ),
           ),
-
-          const Divider(height: 10,),
+          const Divider(
+            height: 10,
+          ),
           Container(
             padding: const EdgeInsets.all(10.0),
             alignment: Alignment.center,
@@ -91,7 +97,8 @@ class NotificationPage extends StatelessWidget {
               onPressed: () {},
               child: const Text(
                 'VIEW ALL',
-                style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.black45, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -100,6 +107,7 @@ class NotificationPage extends StatelessWidget {
     );
   }
 }
+
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
@@ -170,14 +178,12 @@ class Notification extends StatelessWidget {
           children: [
             TextSpan(
               text: notification.name,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             TextSpan(text: ' ${notification.action} '),
             TextSpan(
               text: notification.target,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ),

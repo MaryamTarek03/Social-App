@@ -10,6 +10,7 @@ class CommonText extends StatelessWidget {
   final double fontSize;
   final int maxLines;
   Color? color;
+  TextAlign? alignment;
 
   CommonText({
     super.key,
@@ -18,6 +19,7 @@ class CommonText extends StatelessWidget {
     this.fontWeight = FontWeight.normal,
     this.maxLines = 10,
     this.color,
+    this.alignment,
   });
 
   @override
@@ -30,6 +32,7 @@ class CommonText extends StatelessWidget {
           text,
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
+          textAlign: alignment,
           style: appManager.language == const Locale('en')
               ? englishStyle(
                   fontSize: fontSize,

@@ -13,7 +13,14 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: CommonText(
+          text: S.of(context).settings,
+          fontSize: Numbers.appBarTitleSize,
+          fontWeight: FontWeight.bold,
+        ),
+        centerTitle: true,
+      ),
       body: BlocConsumer<AppManagerCubit, AppManagerState>(
         listener: (context, state) {},
         builder: (context, state) {

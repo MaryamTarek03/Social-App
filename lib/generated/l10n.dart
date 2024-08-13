@@ -209,6 +209,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Add a comment...`
+  String get postCommentHintText {
+    return Intl.message(
+      'Add a comment...',
+      name: 'postCommentHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment`
+  String get comment {
+    return Intl.message(
+      'Comment',
+      name: 'comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Post Details`
+  String get postDetails {
+    return Intl.message(
+      'Post Details',
+      name: 'postDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow`
+  String get follow {
+    return Intl.message(
+      'Follow',
+      name: 'follow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Recent`
+  String get recent {
+    return Intl.message(
+      ' Recent',
+      name: 'recent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get popular {
+    return Intl.message(
+      'Popular',
+      name: 'popular',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -4,8 +4,6 @@ import 'package:connect_social_app/presentation/screens/notification_page.dart';
 import 'package:connect_social_app/presentation/widgets/drawer.dart';
 import 'package:connect_social_app/presentation/widgets/logo_text.dart';
 import 'package:connect_social_app/presentation/widgets/material_button.dart';
-import 'package:connect_social_app/presentation/widgets/test/test_container.dart';
-import 'package:connect_social_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -20,9 +18,10 @@ class MainPage extends StatelessWidget {
         title: const LogoText(),
         actions: [
           Container(
-            width: 40,
-            height: 40,
-            margin: const EdgeInsets.all(Numbers.paddingSmall),
+            width: 60,
+            height: 60,
+            margin: const EdgeInsets.all(Numbers.paddingMedium),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(Numbers.radiusMedium)),
@@ -45,31 +44,51 @@ class MainPage extends StatelessWidget {
         shadowColor: Colors.black,
         surfaceTintColor: Theme.of(context).colorScheme.onBackground,
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!Responsive.isMobile(context)) const Flexible(child: MyDrawer()),
-          Expanded(
-            flex: 3,
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Expanded(flex: 3, child: Feed()),
-                  if (Responsive.isDesktop(context))
-                    const Expanded(
-                      child: TestContainer(),
-                    ),
-                ],
-              ),
-            ),
-          ),
-        ],
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: Numbers.paddingMedium),
+        child: SingleChildScrollView(child: Feed()),
       ),
-      drawer: Responsive.isMobile(context) ? const MyDrawer() : null,
+      drawer: const MyDrawer(),
     );
   }
 }
+
+// class ResponsiveMainBody extends StatelessWidget {
+//   const ResponsiveMainBody({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         if (!Responsive.isMobile(context)) const Flexible(child: MyDrawer()),
+//         Expanded(
+//           flex: 3,
+//           child: SingleChildScrollView(
+//             physics: const BouncingScrollPhysics(),
+//             child: Row(
+//               mainAxisSize: MainAxisSize.max,
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 const Expanded(
+//                     flex: 3,
+//                     child: Padding(
+//                       padding: EdgeInsets.symmetric(
+//                           horizontal: Numbers.paddingMedium),
+//                       child: Feed(),
+//                     )),
+//                 if (Responsive.isDesktop(context))
+//                   const Expanded(
+//                     child: TestContainer(),
+//                   ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }

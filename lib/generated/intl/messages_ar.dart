@@ -23,15 +23,22 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "chats": MessageLookupByLibrary.simpleMessage("الدردشات"),
+        "comment": MessageLookupByLibrary.simpleMessage("تعليق"),
         "create": MessageLookupByLibrary.simpleMessage("أنشئ!"),
         "createPostTooltip":
             MessageLookupByLibrary.simpleMessage("أنشئ منشوراً"),
+        "follow": MessageLookupByLibrary.simpleMessage("متابعة"),
         "friends": MessageLookupByLibrary.simpleMessage("الاصدقاء"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "likes": MessageLookupByLibrary.simpleMessage("الاعجابات"),
         "platformName": MessageLookupByLibrary.simpleMessage("كونكت"),
+        "popular": MessageLookupByLibrary.simpleMessage("شائع"),
+        "postCommentHintText":
+            MessageLookupByLibrary.simpleMessage("اضف تعليقاً..."),
+        "postDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنشور"),
         "posts": MessageLookupByLibrary.simpleMessage("المنشورات"),
         "profile": MessageLookupByLibrary.simpleMessage("البروفايل"),
+        "recent": MessageLookupByLibrary.simpleMessage(" حديث"),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "settingsGeneral": MessageLookupByLibrary.simpleMessage("عام"),
         "settingsGoToContact":

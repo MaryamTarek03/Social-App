@@ -3,7 +3,7 @@ class PostModel {
   final int userID;
   final int likesNumber;
   final int commentsNumber;
-  final String postImage;
+  final String? postImage;
   final String body;
   final String date;
 

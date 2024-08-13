@@ -10,7 +10,7 @@ class MyFitContainer extends StatelessWidget {
   final double maxWidth;
   final double? margin;
   final double? padding;
-  
+
   final Color? color;
 
   const MyFitContainer({
@@ -22,7 +22,8 @@ class MyFitContainer extends StatelessWidget {
     this.margin,
     this.width,
     this.height,
-    this.padding, this.color,
+    this.padding,
+    this.color,
   });
 
   @override

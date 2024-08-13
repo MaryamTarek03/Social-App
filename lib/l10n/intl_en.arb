@@ -14,5 +14,11 @@
   "settingsToggleTheme": "Toggle Theme",
   "settingsGoToContact": "Contact Us",
   "settingsGeneral": "General",
-  "settingsOther": "Other"
+  "settingsOther": "Other",
+  "postCommentHintText": "Add a comment...",
+  "comment": "Comment",
+  "postDetails": "Post Details",
+  "follow" : "Follow",
+  "recent" : " Recent",
+  "popular" : "Popular"
 }

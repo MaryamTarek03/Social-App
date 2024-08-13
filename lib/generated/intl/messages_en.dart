@@ -23,15 +23,22 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+        "comment": MessageLookupByLibrary.simpleMessage("Comment"),
         "create": MessageLookupByLibrary.simpleMessage("Create!"),
         "createPostTooltip":
             MessageLookupByLibrary.simpleMessage("Create a Post"),
+        "follow": MessageLookupByLibrary.simpleMessage("Follow"),
         "friends": MessageLookupByLibrary.simpleMessage("Friends"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "platformName": MessageLookupByLibrary.simpleMessage("Connect"),
+        "popular": MessageLookupByLibrary.simpleMessage("Popular"),
+        "postCommentHintText":
+            MessageLookupByLibrary.simpleMessage("Add a comment..."),
+        "postDetails": MessageLookupByLibrary.simpleMessage("Post Details"),
         "posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "recent": MessageLookupByLibrary.simpleMessage(" Recent"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "settingsGeneral": MessageLookupByLibrary.simpleMessage("General"),
         "settingsGoToContact":

@@ -13,11 +13,10 @@ class Post extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool imageExist = true;
+    bool imageExist = post.postImage != null;
     return BlocConsumer<AppManagerCubit, AppManagerState>(
       listener: (context, state) {},
       builder: (context, state) {
-        AppManagerCubit appManager = AppManagerCubit.get(context);
         return MyFitContainer(
           margin: 0,
           child: Column(
@@ -29,38 +28,37 @@ class Post extends StatelessWidget {
                 subtitle: CommonText(
                   text: post.date,
                   fontSize: 12,
+                  color: Theme.of(context).colorScheme.outlineVariant,
                 ),
                 trailing: const Icon(Icons.more_vert_rounded),
               ),
               const SizedBox(height: 10),
               CommonText(
                 maxLines: imageExist ? 3 : 10,
-                text: '${post.body} ' * 150,
+                text: post.body,
               ),
               const SizedBox(height: 10),
               Stack(
                 alignment: Alignment.bottomRight,
                 clipBehavior: Clip.none,
                 children: [
-                  Visibility(
-                    visible: imageExist,
-                    child: Container(
+                  if (post.postImage != null)
+                    Container(
                       width: double.infinity,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Numbers.radiusMedium),
                       ),
-                      child: Image.asset('assets/placeholder/image.png'),
+                      child: Image.network(post.postImage!),
                     ),
-                  ),
                   Positioned(
-                    bottom: imageExist ? -25 : null,
-                    right: imageExist ? 5 : null,
-                    left: appManager.language == const Locale('ar') ? 0 : null,
+                    bottom: post.postImage != null ? -25 : null,
+                    right: post.postImage != null ? 5 : null,
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      textDirection: TextDirection.ltr,
                       children: [
                         CircleButton(
                           icon: Icon(
@@ -87,15 +85,11 @@ class Post extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  0,
-                  Numbers.paddingLarge,
-                  0,
-                  Numbers.paddingMedium,
-                ),
+                padding: const EdgeInsets.only(top: Numbers.paddingLarge),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  textDirection: TextDirection.ltr,
                   children: [
                     PostMiniButton(
                       icon: const Icon(

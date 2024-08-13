@@ -1,6 +1,7 @@
 import 'package:connect_social_app/config/themes/app_main_theme.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
+import 'package:connect_social_app/presentation/screens/auth/login.dart';
 import 'package:connect_social_app/presentation/screens/main/main_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             locale: appManager.language,
-            home: const MainPage(),
+            home: const LoginScreen(),
           );
         },
       ),
