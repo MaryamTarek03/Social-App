@@ -1,5 +1,5 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
-import 'package:connect_social_app/presentation/widgets/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,11 +26,11 @@ class OldPost extends StatelessWidget {
           children: [
             ListTile(
               leading: const CircleAvatar(),
-              title: CommonText(
+              title: VibeText(
                 text: 'Name',
                 fontWeight: FontWeight.bold,
               ),
-              subtitle: CommonText(
+              subtitle: VibeText(
                 text: 'Username • 30-07-2024',
                 fontSize: 12,
               ),
@@ -43,7 +43,7 @@ class OldPost extends StatelessWidget {
                 Numbers.paddingMedium,
                 Numbers.paddingMedium,
               ),
-              child: CommonText(
+              child: VibeText(
                   //! remove ignore
                   // ignore: dead_code
                   maxLines: imageExist ? 3 : 10,

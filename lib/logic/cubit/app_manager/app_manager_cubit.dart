@@ -1,3 +1,4 @@
+import 'package:connect_social_app/config/constants/enums.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,14 +22,16 @@ class AppManagerCubit extends Cubit<AppManagerState> {
   }
 
   Locale language = const Locale('en');
-  Alignment stackAlignment = Alignment.topLeft;
+  Language languageCode = Language.en;
 
-  void toggleLanguage() {
-    language = language == const Locale('en')
-        ? const Locale('ar')
-        : const Locale('en');
-    stackAlignment =
-        language == const Locale('en') ? Alignment.topLeft : Alignment.topRight;
+  void setLanguage(Language newLanguage) {
+    languageCode = newLanguage;
+    language = Locale(languageCodes[languageCode]!);
+    // language = language == const Locale('en')
+    //     ? const Locale('ar')
+    //     : const Locale('en');
+    // stackAlignment =
+    //     language == const Locale('en') ? Alignment.topLeft : Alignment.topRight;
     emit(AppManagerChangeLang());
   }
 

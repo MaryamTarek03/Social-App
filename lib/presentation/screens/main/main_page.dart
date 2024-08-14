@@ -1,9 +1,9 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
 import 'package:connect_social_app/presentation/screens/notification_page.dart';
-import 'package:connect_social_app/presentation/widgets/drawer.dart';
+import 'package:connect_social_app/presentation/widgets/ui/drawer.dart';
 import 'package:connect_social_app/presentation/widgets/logo_text.dart';
-import 'package:connect_social_app/presentation/widgets/material_button.dart';
+import 'package:connect_social_app/presentation/widgets/custom/material_button.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {

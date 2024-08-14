@@ -1,7 +1,7 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
 import 'package:connect_social_app/presentation/screens/post_page.dart';
-import 'package:connect_social_app/presentation/widgets/post.dart';
+import 'package:connect_social_app/presentation/widgets/custom/post.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 

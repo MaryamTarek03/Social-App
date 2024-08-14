@@ -1,8 +1,8 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
-import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
-import 'package:connect_social_app/presentation/widgets/common_text.dart';
-import 'package:connect_social_app/presentation/widgets/fit_container.dart';
+import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,8 +24,8 @@ class Post extends StatelessWidget {
               ListTile(
                 contentPadding: const EdgeInsets.all(0),
                 leading: const CircleAvatar(),
-                title: CommonText(text: 'Name'),
-                subtitle: CommonText(
+                title: VibeText(text: 'Name'),
+                subtitle: VibeText(
                   text: post.date,
                   fontSize: 12,
                   color: Theme.of(context).colorScheme.outlineVariant,
@@ -33,7 +33,7 @@ class Post extends StatelessWidget {
                 trailing: const Icon(Icons.more_vert_rounded),
               ),
               const SizedBox(height: 10),
-              CommonText(
+              VibeText(
                 maxLines: imageExist ? 3 : 10,
                 text: post.body,
               ),

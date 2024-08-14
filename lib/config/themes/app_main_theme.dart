@@ -32,7 +32,7 @@ class AppTheme {
         onBackground: DarkPalette.onBackground,
         outline: DarkPalette.outline,
         outlineVariant: DarkPalette.subText,
-        error: Colors.redAccent,
+        error: const Color.fromARGB(255, 250, 118, 118),
         brightness: Brightness.dark,
       ),
       scaffoldBackgroundColor: DarkPalette.background,

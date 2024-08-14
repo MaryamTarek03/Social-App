@@ -1,10 +1,10 @@
 import 'package:connect_social_app/config/constants/text_style.dart';
-import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
+import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
-class CommonText extends StatelessWidget {
+class VibeText extends StatelessWidget {
   final String text;
   final FontWeight fontWeight;
   final double fontSize;
@@ -12,7 +12,7 @@ class CommonText extends StatelessWidget {
   Color? color;
   TextAlign? alignment;
 
-  CommonText({
+  VibeText({
     super.key,
     required this.text,
     this.fontSize = 16,
@@ -33,13 +33,13 @@ class CommonText extends StatelessWidget {
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
           textAlign: alignment,
-          style: appManager.language == const Locale('en')
-              ? englishStyle(
+          style: appManager.language == const Locale('ar')
+              ? arabicStyle(
                   fontSize: fontSize,
                   color: color ?? Theme.of(context).dividerColor,
                   fontWeight: fontWeight,
                 )
-              : arabicStyle(
+              : englishStyle(
                   fontSize: fontSize,
                   color: color ?? Theme.of(context).dividerColor,
                   fontWeight: fontWeight,

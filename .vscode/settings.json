@@ -20,24 +20,30 @@
       //     "fontStyle": "italic"
       //   }
       // },
-      // { // parameter
-      //   "scope": "variable.parameter",
-      //   "settings": {
-      //     "foreground": "#f885af",
-      //   }
-      // },
+      { // parameter
+        "scope": "variable.parameter",
+        "settings": {
+          "foreground": "#e8c9fa",
+        }
+      },
       // {
       //   "scope": "support.class",
       //   "settings": {
       //     "foreground": "#edcfff"
       //   }
       // },
-      // {
-      //   "scope": "entity.name.type.class",
-      //   "settings": {
-      //     "foreground": "#e8c9fa"
-      //   }
-      // }
+      {
+        "scope": "entity.name.type",
+        "settings": {
+          "foreground": "#f885af"
+        }
+      },
+      {
+        "scope": "entity.name.type.class",
+        "settings": {
+          "foreground": "#f885af"
+        }
+      }
       //     { // inherited class name (ctk.CTkFrame)
       //       "scope": "entity.other.inherited-class",
       //       "settings": {

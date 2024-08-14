@@ -2,9 +2,9 @@ import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/config/themes/palette.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
-import 'package:connect_social_app/presentation/widgets/common_text.dart';
-import 'package:connect_social_app/presentation/widgets/fit_container.dart';
-import 'package:connect_social_app/presentation/widgets/material_button.dart';
+import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
+import 'package:connect_social_app/presentation/widgets/custom/material_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CommonText(
+        title: VibeText(
           text: S.of(context).profile,
           fontSize: Numbers.appBarTitleSize,
           fontWeight: FontWeight.bold,
@@ -48,12 +48,12 @@ class ProfileNameData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CommonText(
+        VibeText(
           text: 'Profile Name',
           fontSize: 28,
           fontWeight: FontWeight.bold,
         ),
-        CommonText(
+        VibeText(
           text: 'Username',
           fontSize: 20,
           color: Theme.of(context).colorScheme.outlineVariant,
@@ -189,7 +189,7 @@ class FilterCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CommonText(
+          VibeText(
             text: S.of(context).posts,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -223,7 +223,7 @@ class ProfileButton extends StatelessWidget {
       margin: 0,
       child: MyMaterialButton(
         onPressed: onPressed,
-        child: CommonText(
+        child: VibeText(
           text: text,
           fontSize: 18,
         ),

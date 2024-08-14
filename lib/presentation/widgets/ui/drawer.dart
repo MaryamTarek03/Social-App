@@ -1,11 +1,10 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/data/app_data.dart';
-import 'package:connect_social_app/logic/cubit/app_manager_cubit.dart';
-import 'package:connect_social_app/presentation/screens/auth/login.dart';
+import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/screens/main/profile.dart';
 import 'package:connect_social_app/presentation/screens/settings.dart';
-import 'package:connect_social_app/presentation/widgets/fit_container.dart';
-import 'package:connect_social_app/presentation/widgets/list_button.dart';
+import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
+import 'package:connect_social_app/presentation/widgets/custom/drawer_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,25 +15,34 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Function()> listButtonFunctions = [
       () => Navigator.pop(context),
-      () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const ProfilePage(),
-            ),
+      () {
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProfilePage(),
           ),
+        );
+      },
       () {},
-      () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SettingsPage(),
-            ),
+      () {
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SettingsPage(),
           ),
-      () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
-            ),
-          ),
+        );
+      },
+      () {
+        Navigator.pop(context);
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => LoginScreen(),
+        //   ),
+        // );
+      },
     ];
     return BlocBuilder<AppManagerCubit, AppManagerState>(
       builder: (context, state) {

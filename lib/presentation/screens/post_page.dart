@@ -4,8 +4,8 @@ import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/data/models/app_models.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
 import 'package:connect_social_app/generated/l10n.dart';
-import 'package:connect_social_app/presentation/widgets/common_text.dart';
-import 'package:connect_social_app/presentation/widgets/image_viewer.dart';
+import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/ui/image_viewer.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
 import 'package:connect_social_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class CommentScreen extends StatelessWidget {
 
   AppBar postAppBar(BuildContext context) {
     return AppBar(
-      title: CommonText(
+      title: VibeText(
         text: S.of(context).postDetails,
         fontSize: Numbers.appBarTitleSize,
         fontWeight: FontWeight.bold,
@@ -126,16 +126,16 @@ class CommentTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonText(text: comment.name),
+                    VibeText(text: comment.name),
                     const SizedBox(height: 8),
-                    CommonText(text: comment.content),
+                    VibeText(text: comment.content),
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            CommonText(
+                            VibeText(
                               text: comment.time,
                               color:
                                   Theme.of(context).colorScheme.outlineVariant,
@@ -150,7 +150,7 @@ class CommentTile extends StatelessWidget {
                                   Theme.of(context).colorScheme.outlineVariant,
                             ),
                             const SizedBox(width: 5),
-                            CommonText(
+                            VibeText(
                               text: comment.likes.toString(),
                               color:
                                   Theme.of(context).colorScheme.outlineVariant,
@@ -189,7 +189,7 @@ class PostCard extends StatelessWidget {
             children: [
               PostUserData(post: post),
               const SizedBox(height: 30),
-              CommonText(text: post.body),
+              VibeText(text: post.body),
               const SizedBox(height: 30),
               const Divider(height: 5),
               const SizedBox(height: Numbers.paddingSmall),
@@ -207,11 +207,11 @@ class PostCard extends StatelessWidget {
                     onPressed: () {},
                   ),
                   const Spacer(),
-                  CommonText(
+                  VibeText(
                     text: post.commentsNumber.toString(),
                     color: Theme.of(context).colorScheme.outlineVariant,
                   ),
-                  CommonText(
+                  VibeText(
                     text: ' ${S.of(context).comment}',
                     color: Theme.of(context).colorScheme.outlineVariant,
                   ),
@@ -261,9 +261,9 @@ class PostUserData extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CommonText(text: 'Dan Walker'),
+              VibeText(text: 'Dan Walker'),
               const SizedBox(height: 2),
-              CommonText(
+              VibeText(
                 text: post.date,
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.outlineVariant,
@@ -283,7 +283,7 @@ class PostUserData extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: Numbers.paddingMedium),
             textStyle: const TextStyle(fontSize: 14, color: Colors.grey),
           ),
-          child: CommonText(
+          child: VibeText(
             text: S.of(context).follow,
           ),
         ),

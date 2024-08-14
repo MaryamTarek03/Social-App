@@ -1,6 +1,6 @@
 import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/data/models/app_models.dart';
-import 'package:connect_social_app/presentation/widgets/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
 // class NotificationPage extends StatelessWidget {
@@ -115,7 +115,7 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CommonText(text: 'N O T I F I C A T I O N S'),
+        title: VibeText(text: 'N O T I F I C A T I O N S'),
         centerTitle: true,
       ),
       body: Column(
