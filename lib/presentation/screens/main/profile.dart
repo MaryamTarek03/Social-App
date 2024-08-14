@@ -147,7 +147,7 @@ class ProfileImages extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 250,
+          height: 150,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/placeholder/image.png'),
@@ -155,7 +155,7 @@ class ProfileImages extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+         Positioned(
           bottom: -90,
           child: Hero(
             tag: 'Profile Picture',
@@ -163,8 +163,8 @@ class ProfileImages extends StatelessWidget {
               color: Colors.black,
               shape: BoxShape.circle,
               elevation: 15,
-              // shadowColor: Colors.black,
-              child: CircleAvatar(
+              shadowColor: Theme.of(context).colorScheme.primary,
+              child: const CircleAvatar(
                 backgroundImage: AssetImage('assets/placeholder/image.png'),
                 radius: 80,
               ),
@@ -186,6 +186,7 @@ class FilterCard extends StatelessWidget {
     return MyFitContainer(
       width: double.infinity,
       maxWidth: double.infinity,
+      height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

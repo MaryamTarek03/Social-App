@@ -27,7 +27,7 @@ class AuthTextField extends StatefulWidget {
 }
 
 class _AuthTextFieldState extends State<AuthTextField> {
-  bool _isObscured = false;
+  bool _isObscured = true;
   void _togglePasswordVisibility() {
     setState(() {
       _isObscured = !_isObscured;

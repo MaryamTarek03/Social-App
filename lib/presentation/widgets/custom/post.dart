@@ -3,7 +3,9 @@ import 'package:connect_social_app/data/models/post_model.dart';
 import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
+import 'package:connect_social_app/presentation/widgets/custom/image_loading.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
+import 'package:connect_social_app/presentation/widgets/ui/post_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,17 +23,7 @@ class Post extends StatelessWidget {
           margin: 0,
           child: Column(
             children: [
-              ListTile(
-                contentPadding: const EdgeInsets.all(0),
-                leading: const CircleAvatar(),
-                title: VibeText(text: 'Name'),
-                subtitle: VibeText(
-                  text: post.date,
-                  fontSize: 12,
-                  color: Theme.of(context).colorScheme.outlineVariant,
-                ),
-                trailing: const Icon(Icons.more_vert_rounded),
-              ),
+              PostHeader(post: post, name: 'Dan Walker'),
               const SizedBox(height: 10),
               VibeText(
                 maxLines: imageExist ? 3 : 10,
@@ -50,7 +42,22 @@ class Post extends StatelessWidget {
                         borderRadius:
                             BorderRadius.circular(Numbers.radiusMedium),
                       ),
-                      child: Image.network(post.postImage!),
+                      child: Image.network(post.postImage!,
+                          loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Container(
+                          height: 150,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.background,
+                            borderRadius:
+                                BorderRadius.circular(Numbers.radiusMedium),
+                          ),
+                          child: ImageLoading(
+                            loadingProgress: loadingProgress,
+                          ),
+                        );
+                      }),
                     ),
                   Positioned(
                     bottom: post.postImage != null ? -25 : null,

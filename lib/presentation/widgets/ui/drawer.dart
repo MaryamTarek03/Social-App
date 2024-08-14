@@ -2,7 +2,7 @@ import 'package:connect_social_app/config/constants/numbers.dart';
 import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/screens/main/profile.dart';
-import 'package:connect_social_app/presentation/screens/settings.dart';
+import 'package:connect_social_app/presentation/screens/main/settings.dart';
 import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
 import 'package:connect_social_app/presentation/widgets/custom/drawer_button.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class MyDrawer extends StatelessWidget {
         AppManagerCubit appManager = AppManagerCubit.get(context);
         return Padding(
           padding: EdgeInsets.only(
-            bottom: Numbers.paddingLarge,
+            bottom: Numbers.paddingSmall,
             left: appManager.language == const Locale('en')
                 ? Numbers.paddingMedium
                 : 0,

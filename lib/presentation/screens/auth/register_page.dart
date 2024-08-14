@@ -17,7 +17,7 @@ class RegisterPage extends StatelessWidget {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   final _nameController = TextEditingController();
-  final _phoneController = TextEditingController();
+  final _usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,39 +37,6 @@ class RegisterPage extends StatelessWidget {
                     alignment: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
-                  // Email Field
-                  AuthTextField(
-                    icon: const Icon(Icons.person_outline_rounded),
-                    hintText: 'Enter your email',
-                    errorText: 'Please enter your email address',
-                    labelText: 'Email',
-                    isPassword: false,
-                    keyboardType: TextInputType.emailAddress,
-                    controller: _emailController,
-                  ),
-                  const SizedBox(height: 10),
-                  // Password Field
-                  AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
-                    hintText: 'Enter your password',
-                    errorText: 'Please enter your password',
-                    labelText: 'Password',
-                    isPassword: true,
-                    keyboardType: TextInputType.text,
-                    controller: _passwordController,
-                  ),
-                  const SizedBox(height: 10),
-                  // Confirm Password Field
-                  AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
-                    hintText: 'Confirm your password',
-                    errorText: 'Please confirm your password',
-                    labelText: 'Confirm Password',
-                    isPassword: true,
-                    keyboardType: TextInputType.text,
-                    controller: _confirmPasswordController,
-                  ),
-                  const SizedBox(height: 25),
                   AuthTextField(
                     icon: const Icon(Icons.person_outline_rounded),
                     hintText: 'Enter your name',
@@ -81,17 +48,50 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   AuthTextField(
-                    icon: const Icon(Icons.phone_outlined),
-                    hintText: 'Enter your phone number',
-                    errorText: 'Please enter your phone number',
-                    labelText: 'Phone Number',
+                    icon: const Icon(Icons.alternate_email_rounded),
+                    hintText: 'Enter your username',
+                    errorText: 'Please enter a valid username',
+                    labelText: 'Username',
                     isPassword: false,
                     keyboardType: TextInputType.number,
-                    controller: _phoneController,
+                    controller: _usernameController,
+                  ),
+                  const SizedBox(height: 25),
+                  AuthTextField(
+                    icon: const Icon(Icons.person_outline_rounded),
+                    hintText: 'Enter your email',
+                    errorText: 'Please enter your email address',
+                    labelText: 'Email',
+                    isPassword: false,
+                    keyboardType: TextInputType.emailAddress,
+                    controller: _emailController,
+                  ),
+                  const SizedBox(height: 10),
+                  AuthTextField(
+                    icon: const Icon(Icons.lock_outline_rounded),
+                    hintText: 'Enter your password',
+                    errorText: 'Please enter your password',
+                    labelText: 'Password',
+                    isPassword: true,
+                    keyboardType: TextInputType.text,
+                    controller: _passwordController,
+                  ),
+                  const SizedBox(height: 10),
+                  AuthTextField(
+                    icon: const Icon(Icons.lock_outline_rounded),
+                    hintText: 'Confirm your password',
+                    errorText: 'Please confirm your password',
+                    labelText: 'Confirm Password',
+                    isPassword: true,
+                    keyboardType: TextInputType.text,
+                    controller: _confirmPasswordController,
                   ),
                   const SizedBox(height: 20),
                   AuthButton(
-                    text: 'Register',
+                    text: VibeText(
+                      text: 'Register',
+                      color: Colors.white,
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         Navigator.pushReplacement(
@@ -108,13 +108,13 @@ class RegisterPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       VibeText(
-                        text: 'Already have an account?',
+                        text: 'Have an account?',
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                       const SizedBox(width: 4),
                       TextButton(
                         onPressed: toggle,
-                        child: VibeText(text: 'Login Now'),
+                        child: VibeText(text: 'Login Here'),
                       ),
                     ],
                   )

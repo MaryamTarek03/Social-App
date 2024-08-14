@@ -4,6 +4,7 @@ import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dar
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/settings/language_choice_page.dart';
 import 'package:connect_social_app/presentation/widgets/settings/settings_block.dart';
+import 'package:connect_social_app/presentation/widgets/settings/theme_choice_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,14 +30,26 @@ class SettingsPage extends StatelessWidget {
                   appManager: appManager,
                   widgets: [
                     [
-                      const Icon(Icons.palette),
-                      VibeText(text: S.of(context).settingsToggleTheme),
-                      appManager.toggleTheme,
+                      appManager.themeMode == ThemeMode.light
+                          ? const Icon(Icons.light_mode_rounded)
+                          : const Icon(Icons.dark_mode_rounded),
+                      VibeText(text: 'Toggle Dark/Light theme'),
+                      appManager.toggleDarkMode,
+                      false,
+                    ],
+                    [
+                      const Icon(Icons.palette_rounded),
+                      VibeText(text: 'Choose a theme'),
+                      () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ThemeChoicesPage(),
+                          )),
                       true,
                     ],
                     [
                       const Icon(Icons.language),
-                      VibeText(text: S.of(context).settingsToggleLang),
+                      VibeText(text: 'Choose a language'),
                       () => Navigator.push(
                           context,
                           MaterialPageRoute(

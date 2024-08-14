@@ -1,5 +1,4 @@
 import 'package:connect_social_app/config/constants/numbers.dart';
-import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
@@ -9,7 +8,7 @@ class AuthButton extends StatelessWidget {
     required this.onPressed,
   });
 
-  final String text;
+  final Widget text;
   final Function() onPressed;
 
   @override
@@ -27,10 +26,7 @@ class AuthButton extends StatelessWidget {
           Theme.of(context).colorScheme.primary,
         ),
       ),
-      child: VibeText(
-        text: text,
-        color: Colors.white,
-      ),
+      child: text,
     );
   }
 }

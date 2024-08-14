@@ -1,12 +1,7 @@
-import 'package:connect_social_app/config/themes/app_main_theme.dart';
+import 'package:connect_social_app/config/constants/enums.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/screens/auth/authentication_page.dart';
-import 'package:connect_social_app/presentation/screens/auth/login.dart';
-import 'package:connect_social_app/presentation/screens/auth/register.dart';
-import 'package:connect_social_app/presentation/screens/auth/register_page.dart';
-import 'package:connect_social_app/presentation/screens/main/main_page.dart';
-import 'package:connect_social_app/presentation/widgets/settings/language_choice_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter/material.dart';
@@ -29,8 +24,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Connect',
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.getLightTheme(),
-            darkTheme: AppTheme.getDarkTheme(),
+            theme: lightThemeData[appManager.themeCode], 
+            darkTheme: darkThemeData[appManager.themeCode],
             themeMode: appManager.themeMode,
             localizationsDelegates: const [
               S.delegate,

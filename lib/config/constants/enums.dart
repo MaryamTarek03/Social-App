@@ -1,4 +1,8 @@
-enum Language { ar, en, de }
+import 'package:connect_social_app/config/themes/dark_themes.dart';
+import 'package:connect_social_app/config/themes/light_themes.dart';
+import 'package:flutter/material.dart';
+
+enum Language { en, ar, de }
 
 Map<Language, String> languageNames = {
   Language.ar: 'Arabic',
@@ -11,13 +15,17 @@ Map<Language, String> languageCodes = {
   Language.de: 'de',
 };
 
-enum MyTheme { light, dark }
+enum MyTheme { original, neonAmethyst }
 
-Map<MyTheme, String> themes = {
-  MyTheme.dark: 'Dark',
-  MyTheme.light: 'Light',
+Map<MyTheme, String> themeNames = {
+  MyTheme.original: 'Original',
+  MyTheme.neonAmethyst: 'Neon Amethyst',
 };
-Map<MyTheme, String> availableThemeData = {
-  MyTheme.dark: 'Dark',
-  MyTheme.light: 'Light',
+Map<MyTheme, ThemeData> darkThemeData = {
+  MyTheme.original: DarkThemes.original,
+  MyTheme.neonAmethyst: DarkThemes.neonAmethyst,
+};
+Map<MyTheme, ThemeData> lightThemeData = {
+  MyTheme.original: LightThemes.original,
+  MyTheme.neonAmethyst: LightThemes.neonAmethyst,
 };

@@ -64,7 +64,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   AuthButton(
-                    text: 'Login',
+                    text: VibeText(
+                      text: 'Login',
+                      color: Colors.white,
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         Navigator.pushReplacement(
@@ -105,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(width: 4),
                       TextButton(
                         onPressed: toggle,
-                        child: VibeText(text: 'Register Now'),
+                        child: VibeText(text: 'Register Here'),
                       ),
                     ],
                   )

@@ -3,7 +3,6 @@ import 'package:connect_social_app/presentation/screens/main/feed.dart';
 import 'package:connect_social_app/presentation/screens/notification_page.dart';
 import 'package:connect_social_app/presentation/widgets/ui/drawer.dart';
 import 'package:connect_social_app/presentation/widgets/logo_text.dart';
-import 'package:connect_social_app/presentation/widgets/custom/material_button.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -17,31 +16,46 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: const LogoText(),
         actions: [
-          Container(
-            width: 60,
-            height: 60,
-            margin: const EdgeInsets.all(Numbers.paddingMedium),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: BorderRadius.circular(Numbers.radiusMedium)),
-            child: MyMaterialButton(
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: Numbers.paddingSmall),
+            child: IconButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const NotificationPage(),
                 ),
               ),
-              child: const Icon(
+              icon: Icon(
                 Icons.notifications,
-                color: Colors.white,
+                color: Theme.of(context).dividerColor,
               ),
             ),
-          )
+          ),
+          // Container(
+          //   width: 60,
+          //   height: 60,
+          //   margin: const EdgeInsets.all(Numbers.paddingMedium),
+          //   alignment: Alignment.center,
+          //   decoration: BoxDecoration(
+          //       color: Theme.of(context).colorScheme.primary,
+          //       borderRadius: BorderRadius.circular(Numbers.radiusMedium)),
+          //   child: MyMaterialButton(
+          //     onPressed: () => Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const NotificationPage(),
+          //       ),
+          //     ),
+          //     child: const Icon(
+          //       Icons.notifications,
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          // )
         ],
-        elevation: 0,
         scrolledUnderElevation: 2,
-        shadowColor: Colors.black,
+        centerTitle: true,
         surfaceTintColor: Theme.of(context).colorScheme.onBackground,
       ),
       body: const Padding(

@@ -25,20 +25,21 @@ class AppManagerCubit extends Cubit<AppManagerState> {
   Language languageCode = Language.en;
 
   void setLanguage(Language newLanguage) {
-    languageCode = newLanguage;
+    languageCode = newLanguage; // ! don't remove, code breaks :P
     language = Locale(languageCodes[languageCode]!);
-    // language = language == const Locale('en')
-    //     ? const Locale('ar')
-    //     : const Locale('en');
-    // stackAlignment =
-    //     language == const Locale('en') ? Alignment.topLeft : Alignment.topRight;
     emit(AppManagerChangeLang());
   }
 
+  MyTheme themeCode = MyTheme.original;
+  void setTheme(MyTheme newTheme) {
+    themeCode = newTheme;
+    emit(AppManagerChangeTheme());
+  }
+  
   ThemeMode themeMode = ThemeMode.system;
 
-  void toggleTheme() {
+  void toggleDarkMode() {
     themeMode = themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-    emit(AppManagerChangeTheme());
+    emit(AppManagerToggleDarkMode());
   }
 }

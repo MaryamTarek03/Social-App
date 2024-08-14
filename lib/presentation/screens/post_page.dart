@@ -5,8 +5,10 @@ import 'package:connect_social_app/data/models/app_models.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
+import 'package:connect_social_app/presentation/widgets/custom/image_loading.dart';
 import 'package:connect_social_app/presentation/widgets/ui/image_viewer.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
+import 'package:connect_social_app/presentation/widgets/ui/post_header.dart';
 import 'package:connect_social_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -90,7 +92,17 @@ class PostImage extends StatelessWidget {
           builder: (context) => ImageViewerPage(image: post.postImage!),
         ),
       ),
-      child: Image.network(post.postImage!),
+      child: Image.network(
+        post.postImage!,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return SizedBox(
+            height: 150,
+            width: double.infinity,
+            child: ImageLoading(loadingProgress: loadingProgress),
+          );
+        },
+      ),
     );
   }
 }
@@ -187,7 +199,7 @@ class PostCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PostUserData(post: post),
+              PostHeader(post: post, name: 'Dan Walker'),
               const SizedBox(height: 30),
               VibeText(text: post.body),
               const SizedBox(height: 30),
