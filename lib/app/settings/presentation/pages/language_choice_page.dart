@@ -1,13 +1,13 @@
 import 'package:connect_social_app/core/config/constants/enums.dart';
 import 'package:connect_social_app/core/config/constants/numbers.dart';
-import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ThemeChoicesPage extends StatelessWidget {
-  const ThemeChoicesPage({super.key});
+class LanguageChoicesPage extends StatelessWidget {
+  const LanguageChoicesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ThemeChoicesPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: VibeText(
-          text: 'Choose a theme',
+          text: 'Choose a language',
           fontSize: Numbers.appBarTitleSize,
           fontWeight: FontWeight.bold,
         ),
@@ -31,12 +31,12 @@ class ThemeChoicesPage extends StatelessWidget {
             builder: (context, state) {
               var appManager = AppManagerCubit.get(context);
               return ListView.builder(
-                itemCount: MyTheme.values.length,
+                itemCount: Language.values.length,
                 itemBuilder: (context, index) => RadioListTile(
-                  title: VibeText(text: themeNames[MyTheme.values[index]]!),
-                  groupValue: appManager.themeCode,
-                  value: MyTheme.values[index],
-                  onChanged: (value) => appManager.setTheme(value!),
+                  title: VibeText(text: languageNames[Language.values[index]]!),
+                  groupValue: appManager.languageCode,
+                  value: Language.values[index],
+                  onChanged: (value) => appManager.setLanguage(value!),
                   activeColor: Theme.of(context).colorScheme.primary,
                   fillColor: MaterialStatePropertyAll(
                     Theme.of(context).colorScheme.primary,

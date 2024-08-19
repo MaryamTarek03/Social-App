@@ -1,4 +1,4 @@
-import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';

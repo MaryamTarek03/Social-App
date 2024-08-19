@@ -1,10 +1,10 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/generated/l10n.dart';
-import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
-import 'package:connect_social_app/presentation/widgets/settings/language_choice_page.dart';
-import 'package:connect_social_app/presentation/widgets/settings/settings_block.dart';
-import 'package:connect_social_app/presentation/widgets/settings/theme_choice_page.dart';
+import 'package:connect_social_app/app/settings/presentation/pages/language_choice_page.dart';
+import 'package:connect_social_app/app/settings/presentation/widgets/settings_block.dart';
+import 'package:connect_social_app/app/settings/presentation/pages/theme_choice_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

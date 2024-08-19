@@ -1,6 +1,6 @@
 import 'package:connect_social_app/core/config/constants/enums.dart';
 import 'package:connect_social_app/generated/l10n.dart';
-import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/app/authentication/authentication_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 

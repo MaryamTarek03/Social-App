@@ -4,7 +4,7 @@ class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   User? get currentUser => _firebaseAuth.currentUser;
-  Stream<User?> get authStateChange => _firebaseAuth.authStateChanges();
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   Future<void> signInWithEmailAndPassword({
     required String email,
@@ -37,4 +37,8 @@ class Auth {
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
+
+  // Future<void> forgetPassword() async {
+  //   await _firebaseAuth.confirmPasswordReset(code: code, newPassword: newPassword)
+  // }
 }

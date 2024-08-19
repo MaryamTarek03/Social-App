@@ -1,5 +1,5 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
-import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
+import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
 import 'package:connect_social_app/presentation/widgets/custom/material_button.dart';
