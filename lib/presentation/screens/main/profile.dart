@@ -3,7 +3,7 @@ import 'package:connect_social_app/core/config/themes/palette.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
-import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';
+import 'package:connect_social_app/core/widgets/fit_container.dart';
 import 'package:connect_social_app/presentation/widgets/custom/material_button.dart';
 import 'package:flutter/material.dart';
 
