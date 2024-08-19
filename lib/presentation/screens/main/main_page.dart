@@ -1,4 +1,4 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
 import 'package:connect_social_app/presentation/screens/notification_page.dart';
 import 'package:connect_social_app/presentation/widgets/ui/drawer.dart';

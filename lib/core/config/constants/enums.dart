@@ -1,5 +1,5 @@
-import 'package:connect_social_app/config/themes/dark_themes.dart';
-import 'package:connect_social_app/config/themes/light_themes.dart';
+import 'package:connect_social_app/core/config/themes/dark_themes.dart';
+import 'package:connect_social_app/core/config/themes/light_themes.dart';
 import 'package:flutter/material.dart';
 
 enum Language { en, ar, de }

@@ -1,5 +1,5 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
-import 'package:connect_social_app/config/constants/text_style.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/constants/text_style.dart';
 import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/data/models/app_models.dart';
 import 'package:connect_social_app/data/models/post_model.dart';
@@ -9,7 +9,7 @@ import 'package:connect_social_app/presentation/widgets/custom/image_loading.dar
 import 'package:connect_social_app/presentation/widgets/ui/image_viewer.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
 import 'package:connect_social_app/presentation/widgets/ui/post_header.dart';
-import 'package:connect_social_app/utils/responsive.dart';
+import 'package:connect_social_app/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class CommentScreen extends StatelessWidget {

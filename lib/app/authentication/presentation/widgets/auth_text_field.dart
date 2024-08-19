@@ -1,5 +1,5 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
-import 'package:connect_social_app/config/constants/text_style.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthTextField extends StatefulWidget {

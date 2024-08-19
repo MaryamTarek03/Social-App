@@ -1,8 +1,8 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/presentation/screens/main/main_page.dart';
-import 'package:connect_social_app/presentation/widgets/auth/auth_button.dart';
-import 'package:connect_social_app/presentation/widgets/auth/auth_text_field.dart';
-import 'package:connect_social_app/presentation/screens/auth/forgot_password.dart';
+import 'package:connect_social_app/app/authentication/presentation/widgets/auth_button.dart';
+import 'package:connect_social_app/app/authentication/presentation/widgets/auth_text_field.dart';
+import 'package:connect_social_app/app/authentication/presentation/pages/forgot_password.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 

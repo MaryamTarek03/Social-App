@@ -1,5 +1,4 @@
-import 'package:connect_social_app/config/constants/enums.dart';
-import 'package:meta/meta.dart';
+import 'package:connect_social_app/core/config/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

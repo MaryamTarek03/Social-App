@@ -1,5 +1,5 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
-import 'package:connect_social_app/config/themes/palette.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/themes/palette.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/screens/main/feed.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';

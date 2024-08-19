@@ -1,4 +1,4 @@
-import 'package:connect_social_app/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/logic/cubit/app_manager/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/fit_container.dart';

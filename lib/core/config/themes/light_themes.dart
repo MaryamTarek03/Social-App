@@ -1,4 +1,4 @@
-import 'package:connect_social_app/config/themes/palette.dart';
+import 'package:connect_social_app/core/config/themes/palette.dart';
 import 'package:flutter/material.dart';
 
 class LightThemes {
