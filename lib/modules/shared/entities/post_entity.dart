@@ -1,5 +1,5 @@
-class PostModel {
-  final String postID;
+class PostEntity {
+  final String id;
   final String userID;
   final int likesNumber;
   final int commentsNumber;
@@ -7,13 +7,13 @@ class PostModel {
   final String body;
   final String date;
 
-  PostModel({
-    required this.postID,
+  PostEntity({
+    required this.id,
     required this.userID,
     required this.likesNumber,
     required this.commentsNumber,
+    required this.postImage,
     required this.body,
     required this.date,
-    required this.postImage,
   });
 }

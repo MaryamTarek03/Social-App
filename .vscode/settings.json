@@ -20,10 +20,11 @@
       //     "fontStyle": "italic"
       //   }
       // },
-      { // parameter
+      {
+        // parameter
         "scope": "variable.parameter",
         "settings": {
-          "foreground": "#e8c9fa",
+          "foreground": "#e8c9fa"
         }
       },
       // {
@@ -53,5 +54,5 @@
     ]
   },
   "workbench.colorCustomizations": {},
-  "cSpell.words": ["تعليقاً"]
+  "cSpell.words": ["usecase", "usecases", "تعليقاً"]
 }

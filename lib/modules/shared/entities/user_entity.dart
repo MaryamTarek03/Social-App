@@ -25,10 +25,11 @@ class MyUserEntity {
       'email': email,
       'username': username,
       'profileImage': profileImage,
+      'backgroundImage':backgroundImage,
     };
   }
 
-  static MyUserEntity fromDocument(Map<String, dynamic> doc) {
+  factory MyUserEntity.fromDocument(Map<String, dynamic> doc) {
     return MyUserEntity(
       id: doc['id'],
       bio: doc['bio'],
