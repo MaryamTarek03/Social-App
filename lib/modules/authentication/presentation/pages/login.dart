@@ -1,12 +1,13 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
+import 'package:connect_social_app/modules/authentication/presentation/pages/forgot_password.dart';
+import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_button.dart';
+import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_text_field.dart';
 import 'package:connect_social_app/presentation/screens/main/main_page.dart';
-import 'package:connect_social_app/app/authentication/presentation/widgets/auth_button.dart';
-import 'package:connect_social_app/app/authentication/presentation/widgets/auth_text_field.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key, required this.toggle});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key, required this.toggle});
 
   final Function() toggle;
 
@@ -15,9 +16,6 @@ class RegisterPage extends StatelessWidget {
   // Text Controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
-  final _nameController = TextEditingController();
-  final _usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,32 +29,19 @@ class RegisterPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Icon(
+                    Icons.lock,
+                    color: Theme.of(context).dividerColor,
+                    size: 70,
+                  ),
+                  const SizedBox(height: 50),
                   VibeText(
-                    text: 'Excited to meet you!',
+                    text: 'Welcome back!',
                     fontSize: 28,
                     alignment: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
-                  AuthTextField(
-                    icon: const Icon(Icons.person_outline_rounded),
-                    hintText: 'Enter your name',
-                    errorText: 'Please enter your name',
-                    labelText: 'Name',
-                    isPassword: false,
-                    keyboardType: TextInputType.text,
-                    controller: _nameController,
-                  ),
-                  const SizedBox(height: 10),
-                  AuthTextField(
-                    icon: const Icon(Icons.alternate_email_rounded),
-                    hintText: 'Enter your username',
-                    errorText: 'Please enter a valid username',
-                    labelText: 'Username',
-                    isPassword: false,
-                    keyboardType: TextInputType.number,
-                    controller: _usernameController,
-                  ),
-                  const SizedBox(height: 25),
+                  // Email Field
                   AuthTextField(
                     icon: const Icon(Icons.person_outline_rounded),
                     hintText: 'Enter your email',
@@ -66,7 +51,8 @@ class RegisterPage extends StatelessWidget {
                     keyboardType: TextInputType.emailAddress,
                     controller: _emailController,
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 15),
+                  // Password Field
                   AuthTextField(
                     icon: const Icon(Icons.lock_outline_rounded),
                     hintText: 'Enter your password',
@@ -76,20 +62,10 @@ class RegisterPage extends StatelessWidget {
                     keyboardType: TextInputType.text,
                     controller: _passwordController,
                   ),
-                  const SizedBox(height: 10),
-                  AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
-                    hintText: 'Confirm your password',
-                    errorText: 'Please confirm your password',
-                    labelText: 'Confirm Password',
-                    isPassword: true,
-                    keyboardType: TextInputType.text,
-                    controller: _confirmPasswordController,
-                  ),
                   const SizedBox(height: 20),
                   AuthButton(
                     text: VibeText(
-                      text: 'Register',
+                      text: 'Login',
                       color: Colors.white,
                     ),
                     onPressed: () {
@@ -103,18 +79,36 @@ class RegisterPage extends StatelessWidget {
                       }
                     },
                   ),
+                  Row(
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ForgotPasswordPage(),
+                            ),
+                          );
+                        },
+                        child: VibeText(
+                          text: 'Forgot Password?',
+                          color: Theme.of(context).colorScheme.outlineVariant,
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       VibeText(
-                        text: 'Have an account?',
+                        text: 'Not a member?',
                         color: Theme.of(context).colorScheme.outlineVariant,
                       ),
                       const SizedBox(width: 4),
                       TextButton(
                         onPressed: toggle,
-                        child: VibeText(text: 'Login Here'),
+                        child: VibeText(text: 'Register Here'),
                       ),
                     ],
                   )

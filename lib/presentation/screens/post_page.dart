@@ -2,7 +2,7 @@ import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/core/config/constants/text_style.dart';
 import 'package:connect_social_app/data/app_data.dart';
 import 'package:connect_social_app/data/models/app_models.dart';
-import 'package:connect_social_app/data/models/post_model.dart';
+import 'package:connect_social_app/modules/shared/models/post_model.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/image_loading.dart';

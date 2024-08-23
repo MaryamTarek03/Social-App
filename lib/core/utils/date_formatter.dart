@@ -40,18 +40,18 @@ class DateFormatter {
   }
 
   // Converts a UTC DateTime to local time and formats it
-  // static String formatLocal(DateTime date) {
-  //   final localDate = date.toLocal();
-  //   return DateFormat('yyyy-MM-dd HH:mm:ss').format(localDate);
-  // }
+  static String formatLocal(DateTime date) {
+    final localDate = date.toLocal();
+    return DateFormat('yyyy-MM-dd HH:mm:ss').format(localDate);
+  }
 
   // Parse a date string to a DateTime object
-  // static DateTime? parseDate(String dateString, {String format = 'yyyy-MM-dd HH:mm:ss'}) {
-  //   try {
-  //     return DateFormat(format).parse(dateString);
-  //   } catch (e) {
-  //     // Handle the error, e.g., log it or return null
-  //     return null;
-  //   }
-  // }
+  static DateTime? parseDate(String dateString, {String format = 'yyyy-MM-dd HH:mm:ss'}) {
+    try {
+      return DateFormat(format).parse(dateString);
+    } catch (e) {
+      // Handle the error, e.g., log it or return null
+      return null;
+    }
+  }
 }

@@ -1,5 +1,5 @@
-import 'package:connect_social_app/app/authentication/presentation/pages/login.dart';
-import 'package:connect_social_app/app/authentication/presentation/pages/register_page.dart';
+import 'package:connect_social_app/modules/authentication/presentation/pages/login.dart';
+import 'package:connect_social_app/modules/authentication/presentation/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticationPage extends StatefulWidget {

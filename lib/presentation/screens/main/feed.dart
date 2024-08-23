@@ -1,5 +1,5 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
-import 'package:connect_social_app/data/models/post_model.dart';
+import 'package:connect_social_app/modules/shared/models/post_model.dart';
 import 'package:connect_social_app/presentation/screens/post_page.dart';
 import 'package:connect_social_app/presentation/widgets/custom/post.dart';
 import 'package:flutter/material.dart';

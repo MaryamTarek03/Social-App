@@ -1,6 +1,6 @@
 import 'package:connect_social_app/core/config/constants/enums.dart';
 import 'package:connect_social_app/core/config/constants/numbers.dart';
-import 'package:connect_social_app/app/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
+import 'package:connect_social_app/modules/settings/presentation/manager/settings_cubit/app_manager_cubit.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/core/widgets/fit_container.dart';
 import 'package:flutter/material.dart';

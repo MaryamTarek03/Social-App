@@ -1,4 +1,4 @@
-import 'package:connect_social_app/data/models/post_model.dart';
+import 'package:connect_social_app/modules/shared/models/post_model.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
