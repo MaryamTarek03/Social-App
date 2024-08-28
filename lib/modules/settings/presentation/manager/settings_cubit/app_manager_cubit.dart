@@ -9,17 +9,6 @@ class AppManagerCubit extends Cubit<AppManagerState> {
 
   static AppManagerCubit get(context) => BlocProvider.of(context);
 
-  int selectedPageIndex = 0;
-
-  void setSelectedPageIndex(int index) {
-    if (selectedPageIndex == index) {
-      selectedPageIndex = 0;
-    } else {
-      selectedPageIndex = index;
-    }
-    emit(AppManagerChangePage());
-  }
-
   Locale language = const Locale('en');
   Language languageCode = Language.en;
 

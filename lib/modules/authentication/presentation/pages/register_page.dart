@@ -1,7 +1,7 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_button.dart';
 import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_text_field.dart';
-import 'package:connect_social_app/presentation/screens/main/main_page.dart';
+import 'package:connect_social_app/modules/home/presentation/pages/home_page.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   AuthTextField(
-                    icon: const Icon(Icons.person_outline_rounded),
+                    icon: Icons.person_outline_rounded,
                     hintText: 'Enter your name',
                     errorText: 'Please enter your name',
                     labelText: 'Name',
@@ -48,7 +48,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   AuthTextField(
-                    icon: const Icon(Icons.alternate_email_rounded),
+                    icon: Icons.alternate_email_rounded,
                     hintText: 'Enter your username',
                     errorText: 'Please enter a valid username',
                     labelText: 'Username',
@@ -58,7 +58,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 25),
                   AuthTextField(
-                    icon: const Icon(Icons.person_outline_rounded),
+                    icon: Icons.person_outline_rounded,
                     hintText: 'Enter your email',
                     errorText: 'Please enter your email address',
                     labelText: 'Email',
@@ -68,7 +68,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
+                    icon: Icons.lock_outline_rounded,
                     hintText: 'Enter your password',
                     errorText: 'Please enter your password',
                     labelText: 'Password',
@@ -78,7 +78,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
+                    icon: Icons.lock_outline_rounded,
                     hintText: 'Confirm your password',
                     errorText: 'Please confirm your password',
                     labelText: 'Confirm Password',
@@ -97,7 +97,7 @@ class RegisterPage extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const MainPage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       }

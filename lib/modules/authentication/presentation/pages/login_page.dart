@@ -2,7 +2,7 @@ import 'package:connect_social_app/core/config/constants/numbers.dart';
 import 'package:connect_social_app/modules/authentication/presentation/pages/forgot_password.dart';
 import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_button.dart';
 import 'package:connect_social_app/modules/authentication/presentation/widgets/auth_text_field.dart';
-import 'package:connect_social_app/presentation/screens/main/main_page.dart';
+import 'package:connect_social_app/modules/home/presentation/pages/home_page.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.lock,
-                    color: Theme.of(context).dividerColor,
+                    color: Theme.of(context).colorScheme.onBackground,
                     size: 70,
                   ),
                   const SizedBox(height: 50),
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   // Email Field
                   AuthTextField(
-                    icon: const Icon(Icons.person_outline_rounded),
+                    icon: Icons.person_outline_rounded,
                     hintText: 'Enter your email',
                     errorText: 'Please enter your email address',
                     labelText: 'Email',
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 15),
                   // Password Field
                   AuthTextField(
-                    icon: const Icon(Icons.lock_outline_rounded),
+                    icon: Icons.lock_outline_rounded,
                     hintText: 'Enter your password',
                     errorText: 'Please enter your password',
                     labelText: 'Password',
@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const MainPage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       }

@@ -6,15 +6,15 @@ import 'package:connect_social_app/modules/shared/models/post_model.dart';
 import 'package:connect_social_app/generated/l10n.dart';
 import 'package:connect_social_app/presentation/widgets/custom/common_text.dart';
 import 'package:connect_social_app/presentation/widgets/custom/image_loading.dart';
-import 'package:connect_social_app/presentation/widgets/ui/image_viewer.dart';
+import 'package:connect_social_app/core/widgets/image_viewer.dart';
 import 'package:connect_social_app/presentation/widgets/post_mini_button.dart';
 import 'package:connect_social_app/presentation/widgets/ui/post_header.dart';
 import 'package:connect_social_app/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
-class CommentScreen extends StatelessWidget {
+class PostPage extends StatelessWidget {
   final PostModel post;
-  const CommentScreen({super.key, required this.post});
+  const PostPage({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {

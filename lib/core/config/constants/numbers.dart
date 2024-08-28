@@ -9,4 +9,6 @@ abstract class Numbers {
   static const double radiusLarge = 25;
   static const double radiusMedium = 15;
   static const double radiusSmall = 5;
+
+  static const double subTextOpacity = 0.7;
 }

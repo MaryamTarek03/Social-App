@@ -1,6 +1,6 @@
 import 'package:connect_social_app/core/config/constants/numbers.dart';
+import 'package:connect_social_app/core/config/routes/main_routes.dart';
 import 'package:connect_social_app/modules/shared/models/post_model.dart';
-import 'package:connect_social_app/presentation/screens/post_page.dart';
 import 'package:connect_social_app/presentation/widgets/custom/post.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -97,14 +97,7 @@ class Feed extends StatelessWidget {
           padding: const EdgeInsets.only(top: Numbers.paddingLarge),
           child: InkWell(
             borderRadius: BorderRadius.circular(Numbers.radiusMedium),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CommentScreen(
-                  post: randomPost,
-                ),
-              ),
-            ),
+            onTap: () => MainRoutes.postPage(context, randomPost),
             child: Post(
               post: randomPost,
             ),

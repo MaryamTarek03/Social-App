@@ -12,16 +12,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: VibeText(
-          text: S.of(context).profile,
-          fontSize: Numbers.appBarTitleSize,
-          fontWeight: FontWeight.bold,
-        ),
-        centerTitle: true,
-      ),
-      body: const SingleChildScrollView(
+    return const Scaffold(
+      body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(Numbers.paddingMedium),
           child: Column(
@@ -62,78 +54,6 @@ class ProfileNameData extends StatelessWidget {
     );
   }
 }
-
-// class ResponsiveProfileBody extends StatelessWidget {
-//   const ResponsiveProfileBody({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       child: Padding(
-//         padding: const EdgeInsets.all(Numbers.paddingMedium),
-//         child: Center(
-//           child: SizedBox(
-//             width: min(double.infinity, 1500),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 const ProfileImages(),
-//                 if (!Responsive.isMobile(context))
-//                   Padding(
-//                     padding: const EdgeInsets.symmetric(
-//                         vertical: Numbers.paddingMedium),
-//                     child: ProfileButton(onPressed: () {}, text: 'About'),
-//                   ),
-//                 if (Responsive.isMobile(context)) const SizedBox(height: 70),
-//                 const SizedBox(height: 40),
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Column(
-//                       children: [
-//                         CommonText(
-//                           text: 'Profile Name',
-//                           fontSize: 28,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                         CommonText(
-//                           text: 'Username',
-//                           fontSize: 20,
-//                           color: Theme.of(context).colorScheme.outlineVariant,
-//                         ),
-//                       ],
-//                     ),
-//                   ],
-//                 ),
-//                 const SizedBox(height: 10),
-//                 Row(
-//                   mainAxisAlignment: MainAxisAlignment.start,
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     if (!Responsive.isMobile(context))
-//                       const Expanded(child: TestContainer()),
-//                     const Expanded(
-//                       flex: 2,
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.start,
-//                         children: [
-//                           FilterCard(),
-//                           Feed(),
-//                         ],
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class ProfileImages extends StatelessWidget {
   const ProfileImages({

@@ -19,7 +19,7 @@ class AuthTextField extends StatefulWidget {
   final String hintText;
   final String errorText;
   final String labelText;
-  final Widget icon;
+  final IconData icon;
   final TextEditingController controller;
 
   @override
@@ -41,20 +41,36 @@ class _AuthTextFieldState extends State<AuthTextField> {
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       decoration: InputDecoration(
-        prefixIcon: widget.icon,
+        prefixIcon: Icon(
+          widget.icon,
+          color: Theme.of(context)
+              .colorScheme
+              .onBackground
+              .withOpacity(Numbers.subTextOpacity),
+        ),
         labelText: widget.labelText,
         hintText: widget.hintText,
         hintStyle: Localizations.localeOf(context) == const Locale('ar')
-            ? arabicStyle(color: Theme.of(context).dividerColor)
-            : englishStyle(color: Theme.of(context).dividerColor),
+            ? arabicStyle(
+                color: Theme.of(context)
+                    .colorScheme
+                    .onBackground
+                    .withOpacity(Numbers.subTextOpacity),
+              )
+            : englishStyle(
+                color: Theme.of(context)
+                    .colorScheme
+                    .onBackground
+                    .withOpacity(Numbers.subTextOpacity),
+              ),
         labelStyle: Localizations.localeOf(context) == const Locale('ar')
-            ? arabicStyle(color: Theme.of(context).dividerColor)
-            : englishStyle(color: Theme.of(context).dividerColor),
+            ? arabicStyle(color: Theme.of(context).colorScheme.onBackground)
+            : englishStyle(color: Theme.of(context).colorScheme.onBackground),
         errorStyle: Localizations.localeOf(context) == const Locale('ar')
             ? arabicStyle(color: Theme.of(context).colorScheme.error)
             : englishStyle(color: Theme.of(context).colorScheme.error),
         filled: true,
-        fillColor: Theme.of(context).colorScheme.onBackground,
+        fillColor: Theme.of(context).colorScheme.background,
 
         // BORDERS
         border: OutlineInputBorder(
@@ -76,8 +92,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
         suffixIcon: widget.isPassword!
             ? IconButton(
                 icon: Icon(
-                  _isObscured ? Icons.visibility_off : Icons.visibility,
-                ),
+                    _isObscured ? Icons.visibility_off : Icons.visibility,
+                    color: Theme.of(context).colorScheme.onBackground),
                 onPressed: _togglePasswordVisibility,
               )
             : null,

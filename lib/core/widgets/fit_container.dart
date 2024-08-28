@@ -38,7 +38,7 @@ class MyFitContainer extends StatelessWidget {
         maxWidth: maxWidth,
       ),
       decoration: BoxDecoration(
-        color: color ?? Theme.of(context).colorScheme.onBackground,
+        color: color ?? Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.circular(Numbers.radiusMedium),
         border: Border.all(
           width: 1,

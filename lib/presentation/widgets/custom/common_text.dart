@@ -36,12 +36,12 @@ class VibeText extends StatelessWidget {
           style: appManager.language == const Locale('ar')
               ? arabicStyle(
                   fontSize: fontSize,
-                  color: color ?? Theme.of(context).dividerColor,
+                  color: color ?? Theme.of(context).colorScheme.onBackground,
                   fontWeight: fontWeight,
                 )
               : englishStyle(
                   fontSize: fontSize,
-                  color: color ?? Theme.of(context).dividerColor,
+                  color: color ?? Theme.of(context).colorScheme.onBackground,
                   fontWeight: fontWeight,
                 ),
         );

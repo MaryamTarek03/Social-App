@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             locale: appManager.language,
+            
             home: const AuthenticationPage(),
           );
         },

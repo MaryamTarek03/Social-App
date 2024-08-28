@@ -16,7 +16,7 @@ class LogoText extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         AppManagerCubit appManager = AppManagerCubit.get(context);
-        Color color = Theme.of(context).dividerColor;
+        Color color = Theme.of(context).colorScheme.onBackground;
 
         var englishFont = GoogleFonts.comicNeue(
           fontSize: 32,
